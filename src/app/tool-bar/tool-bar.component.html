@@ -1,0 +1,36 @@
+
+
+
+<div class = "border tool-bar">   
+    
+    <modus-text-input class = "filter-task"
+    placeholder="Search your tasks here" id="filter-id"
+    include-search-icon (valueChange) = "filterTask()"></modus-text-input>
+
+    <modus-button id="btn-modal" color="primary" class = "add-task"
+    (click)="openCreatePanel()" >Create</modus-button>
+    <modus-modal  id = "create-modal"
+    header-text="Create Task"
+    primary-button-text="Save changes"
+    secondary-button-text="Cancel"
+    primary-button-aria-label="Create" (primaryButtonClick)="addTask()"
+    secondary-button-aria-label="Cancel">
+
+    <label for="name">TASK NAME:</label> &nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="text" id="name_add_id" name="name" >
+      <br><br>
+      <label for="description">DESCRIPTION:</label>&nbsp;&nbsp;
+      <input id="description_add_id" name="description" >
+      <br><br>
+      <label for="status">STATUS:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <select id="status_add_id" name="status">
+        <option value="To Do">To Do</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+        <option value="Blocked">Blocked</option>
+      </select>
+    </modus-modal>
+
+</div>
+
+

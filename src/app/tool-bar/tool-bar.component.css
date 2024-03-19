@@ -1,0 +1,17 @@
+.tool-bar{
+    display: flex;
+}
+.filter-task{
+    flex: 1;
+    padding: 8px 16px;
+    background-color: #f0f0f0;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.add-task{
+    padding: 8px 16px;
+    background-color: #f0f0f0;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}

@@ -1,0 +1,23 @@
+  <app-title-bar></app-title-bar>
+  <app-tool-bar></app-tool-bar>
+  <br>
+
+  <modus-button color="primary" class= "assigned-button" id = "assinged-button-id" 
+  (buttonClick)="fetchTaskAssignedToUser()">Assigned To Me</modus-button>
+
+  <div class ="task-panel">
+    <div class ="task-header"> 
+      <span class="task-header-taskname">Task Name</span>
+      <span class="task-header-taskdesc">Task Description</span>
+      <span class="task-header-taskstatus">Status</span>
+      <span class="task-header-taskassigned">Assigned To</span>
+      <span class="task-header-action">Action</span>
+     </div> 
+     
+     <app-task [taskList]="taskList" 
+     [searchText]="searchText" 
+     [userList]="userList"> </app-task> 
+    
+  </div>
+  
+<router-outlet></router-outlet>

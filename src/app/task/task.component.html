@@ -1,0 +1,53 @@
+
+  <div class="task-panel" 
+   *ngFor="let task of taskList | filter: searchText;"  [style.background]="getColorForId(task.status)" >
+
+    <span class="task-name">{{task.name}}</span>
+    <span class="task-description">{{task.description}}</span>
+    
+    <select [(ngModel)]="task.status" id="status-dropdown-id"  class="btn btn-tertiary dropdown-toggle"
+      (change) = "changeStatus($event, task.id)">
+        <option *ngFor="let status of statusList" class="dropdown-item"  [value]= "status.id">{{status.id}}</option>
+    </select>
+
+    <select [(ngModel)]="task.assignee" id="assignee-dropdown-id" style="margin-left: 10px;"  
+       class="btn btn-tertiary dropdown-toggle"
+      (change) = "assignUsertoTask($event, task.id)" >
+        <option *ngFor="let option of userList" class="dropdown-item" [value]="option.username">{{ option.username }}</option>
+    </select>
+
+    <span class="task-icon-span">
+      <modus-icon id="icon-edit" class="task-icon" (click)="openEditPanel(task)" name="person_edit" color="#007bff" size="20"></modus-icon>
+      <modus-icon id="icon-delete" class="task-icon" (click)="openDeletePanel(task)"  name="delete" color="#dc3545" size="20"></modus-icon>
+    </span>
+  
+    <modus-modal  id = "edit-modal" 
+     header-text="Edit Task" 
+     primary-button-text="Save changes"
+     secondary-button-text="Cancel"
+     primary-button-aria-label="Create"  (primaryButtonClick)="editTask()"  
+     secondary-button-aria-label="Cancel" (secondaryButtonClick)="closeEditPanel()" >
+    <label for="name">TASK NAME:</label> &nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="text" id="name_edit_id" name="name" >
+      <br><br>
+      <label for="description">DESCRIPTION:</label>&nbsp;&nbsp;
+      <input id="description_edit_id" name="description" >
+      <br><br>
+      <label for="status">STATUS:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <select id="status_edit_id" name="status">
+        <option value="To Do">To Do</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+        <option value="Blocked">Blocked</option>
+      </select>
+   </modus-modal>
+
+    <modus-modal id = "delete-modal" 
+    header-text="Delete Task"
+    primary-button-text="Yes"
+    primary-button-aria-label="Save changes" (primaryButtonClick)="deleteTask()"
+    secondary-button-text="No" (secondaryButtonClick)="closeDeletePanel()">
+    <p>Are you sure you want to delete?</p>
+  </modus-modal>
+
+</div>

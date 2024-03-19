@@ -1,0 +1,13 @@
+.login-background{
+    background-image: url('/assets/bg_agile.jpg');  
+    background-size: cover;
+     width: 100%; 
+     height: 100vh;
+}
+
+.login-card{
+    width: 40rem;
+    margin: auto;
+    padding: 20px;
+    top:25%;
+}

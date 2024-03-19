@@ -1,0 +1,38 @@
+.task-panel{
+    padding: 10px 35px; 
+     overflow: auto; 
+     height: 90%;
+}
+.task-header{
+    display: flex; 
+    position: relative; 
+    justify-content: space-between;
+    align-items: center; 
+    width: 100%;
+     padding: 20px 60px;
+     background: #0e416c;
+}
+.task-header-taskname{
+    width: 200px;
+    text-align: center; 
+    font-weight: bold;
+     color:white
+}
+.task-header-taskdesc{
+    flex: 1; 
+    text-align: center;
+    font-weight: bold; 
+    color:white 
+}
+.task-header-taskstatus{
+    text-align: center;font-weight: bold; color:white; margin-right: 3%;
+}
+.task-header-taskassigned{
+    text-align: center;font-weight: bold; color:white; margin-right: 1%;
+}
+.task-header-action{
+    display: flex;font-weight: bold; color:white; margin-left: 20px;
+}
+.assigned-button{
+    margin-left: 90%
+}
