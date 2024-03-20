@@ -28,17 +28,26 @@ export class TitleBarComponent {
   loadTitleMenuUI(){
     this.user = this.loginService.getUserData();
     this.element = document.querySelector('modus-navbar');
+
+    this.element.apps = [
+      {
+          description: 'The One Trimble Design System',
+          logoUrl: 'https://modus.trimble.com/favicon.svg',
+          name: 'Trimble Modus',
+          url: 'https://modus.trimble.com/',
+      },
+    ];
     
     this.element.logoOptions = {
       primary: {
-      url: 'https://modus-bootstrap.trimble.com/img/trimble-logo-rev.svg',
-      height: 24,
-    },
-      secondary: { url: 'https://modus-bootstrap.trimble.com/img/trimble-logo-rev.svg', height: 24 },
+        url: '/assets/agile.png',
+        ///https://modus-bootstrap.trimble.com/img/trimble-logo-rev.svg
+        height: 24,
+      },
+      secondary: { url: 'https://modus.trimble.com/favicon.svg', height: 24 },
     };
 
     this.element.profileMenuOptions = {
-      avatarUrl: 'https://avatar.example.com/broken-image-link.png',
       email: this.user.email,
       initials: this.user.username.charAt(0).toUpperCase(),
       signOutText: 'Sign out',
