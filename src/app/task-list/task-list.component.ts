@@ -41,18 +41,6 @@ export class TaskListComponent {
   filterTask(searchTerm:string){
     this.searchText = searchTerm;
   } 
-
-  assignUsertoTask(event: any, id :number){
-    this.taskList[this.findTaskbyIndex(id)].assignee = event.target.value;
-  }
-
-  changeStatus(event: any, id :number){
-    this.taskList[this.findTaskbyIndex(id)].status = event.target.value;
-  }
-
-  findTaskbyIndex(id :number){
-    return this.taskList.findIndex(x => x.id ===id);
-  }
   
   fetchTaskAssignedToUser(){
     this.user = this.loginService.getUserData();

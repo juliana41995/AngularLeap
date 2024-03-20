@@ -32,12 +32,22 @@ export class TaskComponent {
 
   ngOnInit(){}
 
-  assignUsertoTask(event: any, id :number){
+  assignUsertoTask(taskID: any, username :string){
+    this.taskList[this.findTaskbyIndex(taskID)].assignee = username;
     this.saveJsonToFile(this.taskList);
   }
 
-  changeStatus(event: any, id :number){
+  changeStatus(taskID: number, id:string){
+    this.taskList[this.findTaskbyIndex(taskID)].status = id;
     this.saveJsonToFile(this.taskList);
+  }
+
+  findTaskbyIndex(id :number){
+    return this.taskList.findIndex(x => x.id ===id);
+  }
+
+  buttonClick(){
+    console.log('Button Clicked');
   }
 
   getColorForId(id: string){

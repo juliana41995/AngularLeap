@@ -5,16 +5,20 @@
     <span class="task-name">{{task.name}}</span>
     <span class="task-description">{{task.description}}</span>
     
-    <select [(ngModel)]="task.status" id="status-dropdown-id"  class="btn btn-tertiary dropdown-toggle"
-      (change) = "changeStatus($event, task.id)">
-        <option *ngFor="let status of statusList" class="dropdown-item"  [value]= "status.id">{{status.id}}</option>
-    </select>
+     <modus-dropdown  toggle-element-id="toggleStatus" style = "width:10%" > 
+      <modus-button id="toggleStatus" slot="dropdownToggle" show-caret="true"  style = "width:95%" >
+      {{task.status}}</modus-button> 
+      <modus-list slot="dropdownList" *ngFor="let status of statusList" id="status-dropdown-id"> 
+        <modus-list-item [value]= "status.id" id = "status.id" (click)="changeStatus(task.id, status.id)">{{status.id}}</modus-list-item>
+      </modus-list> 
+    </modus-dropdown>
 
-    <select [(ngModel)]="task.assignee" id="assignee-dropdown-id" style="margin-left: 10px;"  
-       class="btn btn-tertiary dropdown-toggle"
-      (change) = "assignUsertoTask($event, task.id)" >
-        <option *ngFor="let option of userList" class="dropdown-item" [value]="option.username">{{ option.username }}</option>
-    </select>
+      <modus-dropdown toggle-element-id="toggleAssignee" style = "width:10%">
+        <modus-button id="toggleAssignee" slot="dropdownToggle" show-caret="true" style = "width:95%">{{task.assignee}}</modus-button>
+        <modus-list slot="dropdownList" *ngFor="let user of userList">
+          <modus-list-item [value]= "user.username" id = "user.username" (click)="assignUsertoTask(task.id, user.username)">{{user.username}}</modus-list-item>
+        </modus-list>
+      </modus-dropdown>
 
     <span class="task-icon-span">
       <modus-icon id="icon-edit" class="task-icon" (click)="openEditPanel(task)" name="person_edit" color="#007bff" size="20"></modus-icon>
